@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Controller to show and serach for locations
 final class LocationViewController: UIViewController {
     
     override func viewDidLoad() {
