@@ -1,5 +1,5 @@
 //
-//  RMSettingsViewController.swift
+//  CharacterViewController.swift
 //  RickAndMorty_UIKit
 //
 //  Created by Sonic on 22/4/23.
@@ -7,13 +7,12 @@
 
 import UIKit
 
-final class RMSettingsViewController: UIViewController {
-
+final class CharacterViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = .systemBackground
-        title = "Settings"
+        title = "Characters"
     }
-    
 }

@@ -1,5 +1,5 @@
 //
-//  RMTabViewController.swift
+//  TabBarViewController.swift
 //  RickAndMorty_UIKit
 //
 //  Created by Sonic on 22/4/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class RMTabViewController: UITabBarController {
+final class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,10 +17,10 @@ final class RMTabViewController: UITabBarController {
 
     private func setupTabs() {
         
-        let characterVC = RMCharacterViewController()
-        let locationVC = RMLocationViewController()
-        let episodeVC = RMEpisodesViewController()
-        let settingVC = RMSettingsViewController()
+        let characterVC = CharacterViewController()
+        let locationVC = LocationViewController()
+        let episodeVC = EpisodesViewController()
+        let settingVC = SettingsViewController()
         
         characterVC.navigationItem.largeTitleDisplayMode = .automatic
         locationVC.navigationItem.largeTitleDisplayMode = .automatic
