@@ -26,11 +26,11 @@ final class CharacterCollectionViewCellViewModel {
         return "Status: \(characterStatus.text)"
     }
     
-    public func fetchImage(completion: @escaping (Result<Data, Error>) -> Void) {
+    public func fetchImage(completion: @escaping (Result<Data, Error>) -> Void) -> URLSessionDataTask? {
         //TODO: Abstract to Image Manager
         guard let url = characterImageUrl else {
             completion(.failure(URLError(.badURL)))
-            return
+            return nil
         }
         let request = URLRequest(url: url)
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
@@ -41,5 +41,6 @@ final class CharacterCollectionViewCellViewModel {
             completion(.success(data))
         }
         task.resume()
+        return task
     }
 }

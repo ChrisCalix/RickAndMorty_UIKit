@@ -10,6 +10,8 @@ import UIKit
 /// Single cell for a character
 final class CharacterCollectionViewCell: UICollectionViewCell {
     
+    private var imageTask : URLSessionDataTask?
+    
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -87,13 +89,14 @@ final class CharacterCollectionViewCell: UICollectionViewCell {
         imageView.image = nil
         nameLabel.font = nil
         statusLabel.font = nil
+        imageTask?.cancel()
     }
     
     public func configure(with viewModel: CharacterCollectionViewCellViewModel) {
         
         nameLabel.text = viewModel.characterName
         statusLabel.text = viewModel.CharacterStatusText
-        viewModel.fetchImage { [weak self] result in
+        imageTask = viewModel.fetchImage { [weak self] result in
             guard let self else { return }
             
             switch result {

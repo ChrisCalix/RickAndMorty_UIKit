@@ -21,10 +21,9 @@ final class CharacterListViewViewModel: NSObject {
     private var cellViewModels: [CharacterCollectionViewCellViewModel] = []
     private var characters: [Character] = [] {
         didSet {
-            print("Updating ViewModels")
-            for character in characters where !cellViewModels.contains(where: { $0.characterId == character.id}) {
+            for character in self.characters where !self.cellViewModels.contains(where: { $0.characterId == character.id}) {
                 let viewModel = CharacterCollectionViewCellViewModel(characterId: character.id, characterName: character.name, characterStatus: character.status, characterImageUrl: URL(string: character.image))
-                cellViewModels.append(viewModel)
+                self.cellViewModels.append(viewModel)
             }
         }
     }
