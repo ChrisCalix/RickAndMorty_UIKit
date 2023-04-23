@@ -40,9 +40,6 @@ final class CharacterListViewViewModel: NSObject {
             
             switch result {
             case .success(let model):
-                for char in model.results {
-                    print("name: \(char.name), id:\(char.id)")
-                }
                 self.apiInfo = model.info
                 self.characters = model.results
                 DispatchQueue.main.async {
@@ -71,9 +68,6 @@ final class CharacterListViewViewModel: NSObject {
             
             switch result {
             case .success(let model):
-                for char in model.results {
-                    print("name: \(char.name), id:\(char.id)")
-                }
                 let moreResults = model.results
                 let originalCount = self.characters.count
                 let newCount = moreResults.count
