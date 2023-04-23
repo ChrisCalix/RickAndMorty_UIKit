@@ -22,5 +22,6 @@ final class RMService {
     ///   - completion: Callback with data or error
     public func execute(_ request: RMRequest, completion: @escaping () -> Void) {
         
+        
     }
 }
