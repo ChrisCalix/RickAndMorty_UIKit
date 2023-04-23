@@ -37,6 +37,7 @@
 		C3E164AA29F578320046DE36 /* CharacterDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E164A929F578320046DE36 /* CharacterDetailViewViewModel.swift */; };
 		C3E164AE29F57ED70046DE36 /* FooterLoadingCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E164AD29F57ED70046DE36 /* FooterLoadingCollectionReusableView.swift */; };
 		C3E164B029F57EF50046DE36 /* UICollectionReusableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E164AF29F57EF50046DE36 /* UICollectionReusableView+Extensions.swift */; };
+		C3E164B229F5AC320046DE36 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E164B129F5AC320046DE36 /* ImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		C3E164A929F578320046DE36 /* CharacterDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewViewModel.swift; sourceTree = "<group>"; };
 		C3E164AD29F57ED70046DE36 /* FooterLoadingCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterLoadingCollectionReusableView.swift; sourceTree = "<group>"; };
 		C3E164AF29F57EF50046DE36 /* UICollectionReusableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionReusableView+Extensions.swift"; sourceTree = "<group>"; };
+		C3E164B129F5AC320046DE36 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 		C30098E129F496ED007CA4B7 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				C3E164B129F5AC320046DE36 /* ImageLoader.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				C3B0251C29F4D18900933B7B /* UIView+Extensions.swift in Sources */,
 				C3B0250129F49B5C00933B7B /* EpisodesViewController.swift in Sources */,
 				C3B0251029F4B8D700933B7B /* CharacterStatus.swift in Sources */,
+				C3E164B229F5AC320046DE36 /* ImageLoader.swift in Sources */,
 				C3E164A829F5780D0046DE36 /* CharacterDetailView.swift in Sources */,
 				C3B0251A29F4C7D100933B7B /* CharacterListView.swift in Sources */,
 				C3B024FF29F49B4100933B7B /* LocationViewController.swift in Sources */,
