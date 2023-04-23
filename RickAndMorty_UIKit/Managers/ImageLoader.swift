@@ -20,12 +20,12 @@ final class ImageLoader {
     /// - Parameters:
     ///   - url: source url
     ///   - completion: Callback
-    public func downloadImage(_ url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
+    public func downloadImage(_ url: URL, completion: @escaping (Result<Data, Error>) -> Void) -> URLSessionDataTask? {
         
         let key = url.absoluteString as NSString
         if let data = imageDataCache.object(forKey: key) {
             completion(.success(data as Data))
-            return
+            return nil
         }
         let request = URLRequest(url: url)
         let task = URLSession.shared.dataTask(with: request) { [weak self] data, _, error in
@@ -38,5 +38,6 @@ final class ImageLoader {
             completion(.success(data))
         }
         task.resume()
+        return task
     }
 }
