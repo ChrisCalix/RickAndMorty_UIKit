@@ -16,7 +16,8 @@ protocol CharacterListViewViewModelDelegate: AnyObject {
 final class CharacterListViewViewModel: NSObject {
     
     public weak var delegate: CharacterListViewViewModelDelegate?
-    
+    private var cellViewModels: [CharacterCollectionViewCellViewModel] = []
+    private var apiInfo: GetAllCharactersResponse.Info?
     private var characters: [Character] = [] {
         didSet {
             for character in characters {
@@ -25,17 +26,21 @@ final class CharacterListViewViewModel: NSObject {
             }
         }
     }
-    private var cellViewModels: [CharacterCollectionViewCellViewModel] = []
+    public var shouldShowLoadMoreIndicator: Bool {
+        return apiInfo?.next != nil
+    }
     
-    func fetchCharacters() {
+    /// Fetch initial set of characters(20)
+    public func fetchCharacters() {
         
         RMService.shared.execute(.listCharactersRequests, expecting: GetAllCharactersResponse.self) { [weak self] result in
             guard let self else { return }
+            
             switch result {
             case .success(let model):
                 let results = model.results
+                self.apiInfo = model.info
                 self.characters = results
-                
                 DispatchQueue.main.async {
                     self.delegate?.didLoadInitialCharacters()
                 }
@@ -44,8 +49,15 @@ final class CharacterListViewViewModel: NSObject {
             }
         }
     }
+    
+    /// Paginate if aditional characters are needed
+    public func fetchAditionalCharacters() {
+        
+        
+    }
 }
 
+//  MARK: UICollection Implementations
 extension CharacterListViewViewModel: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -60,11 +72,31 @@ extension CharacterListViewViewModel: UICollectionViewDataSource {
         }
         cell.configure(with: cellViewModels[indexPath.row])
         return cell
-    }    
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard kind == UICollectionView.elementKindSectionFooter else { return UICollectionReusableView() }
+        
+        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                     withReuseIdentifier: FooterLoadingCollectionReusableView.identifier,
+                                                                     for: indexPath)
+        return footer
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        
+        return CGSize(width: collectionView.frame.width, height: 100)
+    }
 }
 
 extension CharacterListViewViewModel: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let character = characters[indexPath.row]
+        delegate?.didSelectCharacter(character)
+    }
 }
 
 extension CharacterListViewViewModel: UICollectionViewDelegateFlowLayout {
@@ -76,11 +108,12 @@ extension CharacterListViewViewModel: UICollectionViewDelegateFlowLayout {
         let height = width*1.5
         return CGSize(width: width, height: height)
     }
+}
+
+//MARK: ScrollView
+extension CharacterListViewViewModel: UIScrollViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        collectionView.deselectItem(at: indexPath, animated: true)
-        let character = characters[indexPath.row]
-        delegate?.didSelectCharacter(character)
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard shouldShowLoadMoreIndicator else { return }
     }
 }

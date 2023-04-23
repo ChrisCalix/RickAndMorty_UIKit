@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// View Model to handle character list view logic
 final class CharacterDetailViewViewModel {
     
     private let character: Character

@@ -1,13 +1,13 @@
 //
-//  UICollectionViewCell.swift
+//  UICollectionReusableView+Extensions.swift
 //  RickAndMorty_UIKit
 //
-//  Created by Sonic on 22/4/23.
+//  Created by Sonic on 23/4/23.
 //
 
 import UIKit
 
-extension UICollectionViewCell {
+extension UICollectionReusableView {
     
     static var identifier: String {
         return String(describing: self)
