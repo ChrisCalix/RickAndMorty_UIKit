@@ -9,13 +9,14 @@ import Foundation
 
 final class CharacterCollectionViewCellViewModel {
     
+    let characterId: Int
     let characterName: String
     let characterStatus: CharacterStatus
     let characterImageUrl: URL?
     
     //MARK: Init
-    init(characterName: String, characterStatus: CharacterStatus, characterImageUrl: URL?) {
-        
+    init(characterId: Int, characterName: String, characterStatus: CharacterStatus, characterImageUrl: URL?) {
+        self.characterId = characterId
         self.characterName = characterName
         self.characterStatus = characterStatus
         self.characterImageUrl = characterImageUrl

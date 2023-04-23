@@ -90,6 +90,13 @@ extension CharacterListView: CharacterListViewViewModelDelegate {
         }
     }
     
+    func didLoadMoreCharacters(with indexPaths: [IndexPath]) {
+        
+        collectionView.performBatchUpdates {
+            collectionView.insertItems(at: indexPaths)
+        }
+    }
+    
     func didSelectCharacter(_ character: Character) {
         
         delegate?.characterListView(self, didSelect: character)
