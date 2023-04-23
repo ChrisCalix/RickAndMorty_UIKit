@@ -18,7 +18,7 @@ final class RMRequest {
     /// Desired endpoint
     private let endpoint: RMEndpoint
     /// path component for API, if any
-    private let pathComponents: Set<String>
+    private let pathComponents: [String]
     ///query arguments for API, if any
     private let queryParameters: [URLQueryItem]
     /// Constructed url for the api request in string format
@@ -33,7 +33,6 @@ final class RMRequest {
                 string += "/\(path)"
             }
         }
-        
         if !queryParameters.isEmpty {
             string += "?"
             let argumentString = queryParameters.compactMap ({ paramenter in
@@ -57,9 +56,14 @@ final class RMRequest {
     ///   - endpoint: Taget endpoint
     ///   - pathComponents: Collection of Path components
     ///   - queryParameters: Collections of query parameters
-    public init(endpoint: RMEndpoint, pathComponents: Set<String> = [], queryParameters: [URLQueryItem] = []) {
+    public init(endpoint: RMEndpoint, pathComponents: [String] = [], queryParameters: [URLQueryItem] = []) {
         self.endpoint = endpoint
         self.pathComponents = pathComponents
         self.queryParameters = queryParameters
     }
+}
+
+extension RMRequest {
+    
+    static let listCharactersRequests = RMRequest(endpoint: .character)
 }
