@@ -25,6 +25,9 @@
 		C3B0251829F4C73100933B7B /* CharacterListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0251729F4C73100933B7B /* CharacterListViewViewModel.swift */; };
 		C3B0251A29F4C7D100933B7B /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0251929F4C7D100933B7B /* CharacterListView.swift */; };
 		C3B0251C29F4D18900933B7B /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0251B29F4D18900933B7B /* UIView+Extensions.swift */; };
+		C3B0251E29F4D9DF00933B7B /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0251D29F4D9DF00933B7B /* CharacterCollectionViewCell.swift */; };
+		C3B0252029F4DA2400933B7B /* UICollectionViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0251F29F4DA2400933B7B /* UICollectionViewCell+Extensions.swift */; };
+		C3B0252229F4E31F00933B7B /* CharacterCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B0252129F4E31F00933B7B /* CharacterCollectionViewCellViewModel.swift */; };
 		C3B4AA0E29F47AA1004D32D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B4AA0D29F47AA1004D32D9 /* AppDelegate.swift */; };
 		C3B4AA1029F47AA1004D32D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B4AA0F29F47AA1004D32D9 /* SceneDelegate.swift */; };
 		C3B4AA1229F47AA1004D32D9 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B4AA1129F47AA1004D32D9 /* TabBarViewController.swift */; };
@@ -51,6 +54,9 @@
 		C3B0251729F4C73100933B7B /* CharacterListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewViewModel.swift; sourceTree = "<group>"; };
 		C3B0251929F4C7D100933B7B /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
 		C3B0251B29F4D18900933B7B /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		C3B0251D29F4D9DF00933B7B /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
+		C3B0251F29F4DA2400933B7B /* UICollectionViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		C3B0252129F4E31F00933B7B /* CharacterCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		C3B4AA0A29F47AA1004D32D9 /* RickAndMorty_UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty_UIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B4AA0D29F47AA1004D32D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B4AA0F29F47AA1004D32D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				C3B0251929F4C7D100933B7B /* CharacterListView.swift */,
+				C3B0251D29F4D9DF00933B7B /* CharacterCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -100,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				C3B0251729F4C73100933B7B /* CharacterListViewViewModel.swift */,
+				C3B0252129F4E31F00933B7B /* CharacterCollectionViewCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -128,7 +136,6 @@
 				C3B4AA1629F47AA2004D32D9 /* Assets.xcassets */,
 				C3B4AA1829F47AA2004D32D9 /* LaunchScreen.storyboard */,
 				C3B4AA0F29F47AA1004D32D9 /* SceneDelegate.swift */,
-				C3B0251B29F4D18900933B7B /* UIView+Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -167,6 +174,15 @@
 			path = APIResponseTypes;
 			sourceTree = "<group>";
 		};
+		C3B0252329F4E3C700933B7B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C3B0251B29F4D18900933B7B /* UIView+Extensions.swift */,
+				C3B0251F29F4DA2400933B7B /* UICollectionViewCell+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C3B4AA0129F47AA1004D32D9 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +202,7 @@
 		C3B4AA0C29F47AA1004D32D9 /* RickAndMorty_UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				C3B0252329F4E3C700933B7B /* Extensions */,
 				C30098E329F49703007CA4B7 /* Resources */,
 				C30098E229F496F6007CA4B7 /* APIClient */,
 				C30098E129F496ED007CA4B7 /* Managers */,
@@ -273,11 +290,13 @@
 				C3B0251029F4B8D700933B7B /* CharacterStatus.swift in Sources */,
 				C3B0251A29F4C7D100933B7B /* CharacterListView.swift in Sources */,
 				C3B024FF29F49B4100933B7B /* LocationViewController.swift in Sources */,
+				C3B0252229F4E31F00933B7B /* CharacterCollectionViewCellViewModel.swift in Sources */,
 				C3B024FA29F49AD300933B7B /* Episode.swift in Sources */,
 				C3B4AA1229F47AA1004D32D9 /* TabBarViewController.swift in Sources */,
 				C3B4AA0E29F47AA1004D32D9 /* AppDelegate.swift in Sources */,
 				C3B024F629F49AAF00933B7B /* Location.swift in Sources */,
 				C3B0250429F49C2A00933B7B /* SettingsViewController.swift in Sources */,
+				C3B0252029F4DA2400933B7B /* UICollectionViewCell+Extensions.swift in Sources */,
 				C3B0250A29F4A5F600933B7B /* RMEndpoint.swift in Sources */,
 				C3B0250629F4A4E300933B7B /* RMService.swift in Sources */,
 				C3B4AA1029F47AA1004D32D9 /* SceneDelegate.swift in Sources */,
@@ -288,6 +307,7 @@
 				C3B0250C29F4B7CA00933B7B /* Origin.swift in Sources */,
 				C3B0250E29F4B81800933B7B /* SingleLocation.swift in Sources */,
 				C3B0251829F4C73100933B7B /* CharacterListViewViewModel.swift in Sources */,
+				C3B0251E29F4D9DF00933B7B /* CharacterCollectionViewCell.swift in Sources */,
 				C3B0251629F4C45600933B7B /* GetAllCharactersResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
