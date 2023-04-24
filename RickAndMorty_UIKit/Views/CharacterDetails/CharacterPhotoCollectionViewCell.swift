@@ -42,8 +42,8 @@ class CharacterPhotoCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        imageView.image = nil
         imageTask?.cancel()
+        imageView.image = nil
         imageTask = nil
     }
     

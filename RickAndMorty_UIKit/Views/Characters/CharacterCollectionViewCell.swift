@@ -83,10 +83,11 @@ final class CharacterCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        imageView.image = nil
+        
         nameLabel.font = nil
         statusLabel.font = nil
         imageTask?.cancel()
+        imageView.image = nil
         imageTask = nil
     }
     
