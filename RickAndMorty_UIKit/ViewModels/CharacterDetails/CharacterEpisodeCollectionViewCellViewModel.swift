@@ -39,6 +39,8 @@ final class CharacterEpisodeCollectionViewCellViewModel {
         guard !isFetching,
               let url = episodeDataUrl,
               let request = RMRequest(url: url) else {
+            guard let episode else { return }
+            dataBlock?(episode)
             return
         }
         
@@ -48,9 +50,7 @@ final class CharacterEpisodeCollectionViewCellViewModel {
             
             switch result {
             case .success(let model):
-                DispatchQueue.main.async {
-                    self.episode = model
-                }
+                self.episode = model
             case .failure(let failure):
                 print(String(describing: failure))
             }

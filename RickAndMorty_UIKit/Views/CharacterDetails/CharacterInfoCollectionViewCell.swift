@@ -32,15 +32,14 @@ final class CharacterInfoCollectionViewCell: UICollectionViewCell {
     private let titleContainerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .secondarySystemBackground
         return view
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.backgroundColor = .tertiarySystemBackground
-        contentView.layer.cornerRadius = 8
+        contentView.backgroundColor = .secondarySystemBackground
+        contentView.layer.cornerRadius = 10
         contentView.layer.masksToBounds = true
         contentView.addSubviews(titleContainerView, valueLabel, iconImageView)
         titleContainerView.addSubviews(titleLabel)
@@ -92,6 +91,8 @@ final class CharacterInfoCollectionViewCell: UICollectionViewCell {
         valueLabel.text = viewModel.displayValue
         iconImageView.image = viewModel.iconImage
         iconImageView.tintColor = viewModel.tintColor
-        titleLabel.textColor = viewModel.tintColor
+        titleLabel.textColor = .secondarySystemBackground
+        titleContainerView.backgroundColor = viewModel.tintColor
+
     }
 }
