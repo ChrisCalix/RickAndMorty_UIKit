@@ -27,7 +27,7 @@ class CharacterDetailViewController: UIViewController {
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = .systemBackground
         title = viewModel.title
         view.addSubview(detailView)
@@ -57,7 +57,7 @@ class CharacterDetailViewController: UIViewController {
     }
 }
 
-extension CharacterDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension CharacterDetailViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
@@ -100,6 +100,23 @@ extension CharacterDetailViewController: UICollectionViewDelegate, UICollectionV
             let viewModel = viewModels[indexPath.row]
             cell.configure(with: viewModel)
             return cell
+        }
+    }
+}
+
+extension CharacterDetailViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+        let sectionType = viewModel.sections[indexPath.section]
+        switch sectionType {
+        case .episodes:
+            let episodes = self.viewModel.episodes
+            let selection = episodes[indexPath.row]
+            let vc = EpisodeDetailViewController(url: URL(string: selection))
+            navigationController?.pushViewController(vc, animated: true)
+        default: break
         }
     }
 }

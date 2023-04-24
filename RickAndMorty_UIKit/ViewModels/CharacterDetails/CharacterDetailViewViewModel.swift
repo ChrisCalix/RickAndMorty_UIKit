@@ -25,6 +25,9 @@ final class CharacterDetailViewViewModel {
     private var requestUrl: URL? {
         return URL(string: character.url)
     }
+    public var episodes: [String] {
+        character.episode
+    }
     
     //MARK: Init
     init(character: Character) {
