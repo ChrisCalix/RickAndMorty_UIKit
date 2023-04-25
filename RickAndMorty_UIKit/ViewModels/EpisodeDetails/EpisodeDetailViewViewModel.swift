@@ -16,18 +16,19 @@ final class EpisodeDetailViewViewModel {
     
     enum SectionType {
         case information(viewModels: [EpisodeInfoCollectionViewCellViewModel])
-        case characters(viewModels: [CharacterEpisodeCollectionViewCellViewModel])
+        case characters(viewModels: [CharacterCollectionViewCellViewModel])
     }
     
     private let endpoint: URL?
-    private var dataTupple: (Episode, [Character])? {
+    private var dataTupple: (episode: Episode, characters: [Character])? {
         didSet {
+            createCellViewModels()
             delegate?.didFetchEpisodeDetails()
         }
     }
     public weak var delegate: EpisodeDetailViewViewModelDelegate?
     ///  thsi property is public but only get. bcause the set is declarated as private access
-    public private(set) var sections = [SectionType]()
+    public private(set) var cellViewModels = [SectionType]()
     
     init(endpoint: URL?) {
         
@@ -49,6 +50,29 @@ final class EpisodeDetailViewViewModel {
                 print(String(describing: failure))
             }
         }
+    }
+    
+    private func createCellViewModels() {
+        guard let dataTupple else { return }
+        
+        let episode = dataTupple.episode
+        let characters = dataTupple.characters
+        cellViewModels = [
+            .information(viewModels: [
+                .init(title: "Episode Name", value: episode.name),
+                .init(title: "Air Date", value: episode.air_date),
+                .init(title: "Episode", value: episode.episode),
+                .init(title: "Created", value: episode.created),
+            ]),
+            .characters(viewModels: characters.compactMap({ character in
+                return CharacterCollectionViewCellViewModel(
+                    characterId: character.id,
+                    characterName: character.name,
+                    characterStatus: character.status,
+                    characterImageUrl: URL(string: character.image)
+                )
+            }))
+        ]
     }
     
     private func fetchRelatedCharacters(episode: Episode) {
@@ -76,10 +100,7 @@ final class EpisodeDetailViewViewModel {
         }
         
         group.notify(queue: .main) {
-            
-            self.dataTupple = (
-                episode, characters
-            )
+            self.dataTupple = ( episode: episode, characters: characters)
         }
     }
 }
