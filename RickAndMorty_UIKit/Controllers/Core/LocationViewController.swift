@@ -14,7 +14,7 @@ final class LocationViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
-        title = "Location"
+        title = "Locations"
         addSearchButton()
     }
     

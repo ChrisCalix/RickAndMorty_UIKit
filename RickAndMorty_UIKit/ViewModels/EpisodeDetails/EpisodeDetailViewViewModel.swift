@@ -52,17 +52,25 @@ final class EpisodeDetailViewViewModel {
         }
     }
     
+    public func character(at index: Int) -> Character? {
+        
+        guard let dataTupple else { return nil }
+        return dataTupple.characters[index]
+    }
+    
     private func createCellViewModels() {
         guard let dataTupple else { return }
         
         let episode = dataTupple.episode
         let characters = dataTupple.characters
+        let createdString = episode.created.toDateFormat()?.toShortFormatter() ?? episode.created
+        
         cellViewModels = [
             .information(viewModels: [
                 .init(title: "Episode Name", value: episode.name),
                 .init(title: "Air Date", value: episode.air_date),
                 .init(title: "Episode", value: episode.episode),
-                .init(title: "Created", value: episode.created),
+                .init(title: "Created", value: createdString),
             ]),
             .characters(viewModels: characters.compactMap({ character in
                 return CharacterCollectionViewCellViewModel(

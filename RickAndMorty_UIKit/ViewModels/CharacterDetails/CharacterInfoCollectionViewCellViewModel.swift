@@ -73,19 +73,6 @@ final class CharacterInfoCollectionViewCellViewModel {
         }
     }
     
-    static let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        formatter.timeZone = .current
-        return formatter
-    }()
-    static let shortDateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .short
-        formatter.timeZone = .current
-        return formatter
-    }()
     private let type: `Type`
     private let value: String
     public var title: String {
@@ -93,9 +80,9 @@ final class CharacterInfoCollectionViewCellViewModel {
     }
     public var displayValue: String {
         if value.isEmpty { return "None"}
-        if let date = Self.dateFormatter.date(from: value),
+        if let date = value.toDateFormat(),
             type == .created {
-            return Self.shortDateFormatter.string(from: date)
+            return date.toShortFormatter()
         }
         return value
     }

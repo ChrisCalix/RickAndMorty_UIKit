@@ -27,12 +27,13 @@ final class EpisodeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Episode"
+        title = "Episodes"
         view.backgroundColor = .systemBackground
         view.addSubview(detailView)
         addConstraints()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapShare))
         viewModel.delegate = self
+        detailView.delegate = self
         viewModel.fetchEpisodeData()
     }
     
@@ -56,5 +57,15 @@ extension EpisodeDetailViewController: EpisodeDetailViewViewModelDelegate {
     func didFetchEpisodeDetails() {
         
         detailView.configure(with: viewModel)
+    }
+}
+
+extension EpisodeDetailViewController: EpisodeDetailViewDelegate {
+    
+    func episodeDetailView(_ detailView: EpisodeDetailView, didSelect character: Character) {
+        
+        let vc = CharacterDetailViewController(viewModel: .init(character: character))
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

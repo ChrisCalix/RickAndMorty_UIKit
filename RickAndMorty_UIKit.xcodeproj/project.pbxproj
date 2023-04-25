@@ -54,6 +54,8 @@
 		C3E164C429F643CA0046DE36 /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E164C329F643CA0046DE36 /* EpisodeDetailViewController.swift */; };
 		C3E201A429F781DF003F6E8D /* EpisodeInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E201A329F781DF003F6E8D /* EpisodeInfoCollectionViewCell.swift */; };
 		C3E201A729F781FA003F6E8D /* EpisodeInfoCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E201A629F781FA003F6E8D /* EpisodeInfoCollectionViewCellViewModel.swift */; };
+		C3E201A929F78D71003F6E8D /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E201A829F78D71003F6E8D /* String+Extensions.swift */; };
+		C3E201AB29F78F86003F6E8D /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E201AA29F78F86003F6E8D /* Date+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +108,8 @@
 		C3E164C329F643CA0046DE36 /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
 		C3E201A329F781DF003F6E8D /* EpisodeInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeInfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		C3E201A629F781FA003F6E8D /* EpisodeInfoCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeInfoCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		C3E201A829F78D71003F6E8D /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		C3E201AA29F78F86003F6E8D /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +243,8 @@
 			children = (
 				C3B0251B29F4D18900933B7B /* UIView+Extensions.swift */,
 				C3E164AF29F57EF50046DE36 /* UICollectionReusableView+Extensions.swift */,
+				C3E201A829F78D71003F6E8D /* String+Extensions.swift */,
+				C3E201AA29F78F86003F6E8D /* Date+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -465,11 +471,13 @@
 				C3B0250C29F4B7CA00933B7B /* Origin.swift in Sources */,
 				C3E164A629F577A00046DE36 /* CharacterDetailViewController.swift in Sources */,
 				C3B89D9D29F740A8004DEA9C /* EpisodeListView.swift in Sources */,
+				C3E201AB29F78F86003F6E8D /* Date+Extensions.swift in Sources */,
 				C3B0250E29F4B81800933B7B /* SingleLocation.swift in Sources */,
 				C3E164C029F5D0D70046DE36 /* CharacterInfoCollectionViewCellViewModel.swift in Sources */,
 				C3B0251829F4C73100933B7B /* CharacterListViewViewModel.swift in Sources */,
 				C3B89DA129F7465D004DEA9C /* GetAllEpisodesResponse.swift in Sources */,
 				C3B0251E29F4D9DF00933B7B /* CharacterCollectionViewCell.swift in Sources */,
+				C3E201A929F78D71003F6E8D /* String+Extensions.swift in Sources */,
 				C3B0251629F4C45600933B7B /* GetAllCharactersResponse.swift in Sources */,
 				C3B89D9329F71A42004DEA9C /* APIChaceManager.swift in Sources */,
 				C3E164AE29F57ED70046DE36 /* FooterLoadingCollectionReusableView.swift in Sources */,
