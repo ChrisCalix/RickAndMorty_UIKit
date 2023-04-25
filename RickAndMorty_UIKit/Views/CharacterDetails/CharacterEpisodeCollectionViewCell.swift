@@ -14,7 +14,7 @@ class CharacterEpisodeCollectionViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 18, weight: .heavy)
         label.textAlignment = .right
-        label.textColor = .tertiaryLabel
+        label.textColor = .secondaryLabel
         return label
     }()
     private let nameLabel: UILabel = {
@@ -28,7 +28,7 @@ class CharacterEpisodeCollectionViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 18, weight: .light)
         label.numberOfLines = 2
-        label.textColor = .quaternaryLabel
+        label.textColor = .secondaryLabel
         return label
     }()
     
@@ -51,6 +51,7 @@ class CharacterEpisodeCollectionViewCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 10
         contentView.layer.shadowOffset = CGSize(width: 0, height: 2)
         contentView.layer.shadowOpacity = 0.3
+        contentView.layer.shadowColor = UIColor.secondaryLabel.cgColor
     }
     
     private func setupConstraints() {
@@ -92,6 +93,6 @@ class CharacterEpisodeCollectionViewCell: UICollectionViewCell {
             }
         }
         viewModel.fetchEpisode()
-        contentView.layer.shadowColor = viewModel.borderColor.cgColor
+//        contentView.layer.shadowColor = viewModel.borderColor.cgColor
     }
 }

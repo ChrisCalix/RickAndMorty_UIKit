@@ -28,9 +28,12 @@ final class EpisodeDetailViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Episode"
+        view.backgroundColor = .systemBackground
         view.addSubview(detailView)
         addConstraints()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapShare))
+        viewModel.delegate = self
+        viewModel.fetchEpisodeData()
     }
     
     private func addConstraints() {
@@ -46,5 +49,12 @@ final class EpisodeDetailViewController: UIViewController {
     @objc private func didTapShare() {
         
     }
+}
+
+extension EpisodeDetailViewController: EpisodeDetailViewViewModelDelegate {
     
+    func didFetchEpisodeDetails() {
+        
+        detailView.configure(with: viewModel)
+    }
 }
