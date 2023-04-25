@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		C3610B6C29F7605A00743179 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3610B6B29F7605A00743179 /* SearchViewController.swift */; };
+		C3AACF3929F85D9900EBCF08 /* SettingsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AACF3829F85D9900EBCF08 /* SettingsViewViewModel.swift */; };
+		C3AACF3B29F85DC500EBCF08 /* SettingsCellViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AACF3A29F85DC500EBCF08 /* SettingsCellViewViewModel.swift */; };
+		C3AACF3D29F85E3900EBCF08 /* SettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AACF3C29F85E3900EBCF08 /* SettingsOption.swift */; };
+		C3AACF4029F8617700EBCF08 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AACF3F29F8617700EBCF08 /* SettingsView.swift */; };
 		C3B024F629F49AAF00933B7B /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B024F529F49AAF00933B7B /* Location.swift */; };
 		C3B024F829F49ACB00933B7B /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B024F729F49ACB00933B7B /* Character.swift */; };
 		C3B024FA29F49AD300933B7B /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B024F929F49AD300933B7B /* Episode.swift */; };
@@ -60,6 +64,10 @@
 
 /* Begin PBXFileReference section */
 		C3610B6B29F7605A00743179 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		C3AACF3829F85D9900EBCF08 /* SettingsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewViewModel.swift; sourceTree = "<group>"; };
+		C3AACF3A29F85DC500EBCF08 /* SettingsCellViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellViewViewModel.swift; sourceTree = "<group>"; };
+		C3AACF3C29F85E3900EBCF08 /* SettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOption.swift; sourceTree = "<group>"; };
+		C3AACF3F29F8617700EBCF08 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C3B024F529F49AAF00933B7B /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		C3B024F729F49ACB00933B7B /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		C3B024F929F49AD300933B7B /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
@@ -144,6 +152,7 @@
 		C30098DF29F496DC007CA4B7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C3AACF3E29F8615800EBCF08 /* SwiftUI */,
 				C3E201A229F781A2003F6E8D /* EpisodeDetail */,
 				C3B89D9729F73EC3004DEA9C /* Epiosdes */,
 				C3E164B429F5CFFD0046DE36 /* Characters */,
@@ -156,6 +165,7 @@
 		C30098E029F496E9007CA4B7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				C3AACF3729F85D8200EBCF08 /* Settings */,
 				C3E201A529F781EE003F6E8D /* EpisodeDetails */,
 				C3B89D9629F73EAA004DEA9C /* Episodes */,
 				C3E164BC29F5D0970046DE36 /* Characters */,
@@ -201,6 +211,24 @@
 				C3610B6B29F7605A00743179 /* SearchViewController.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		C3AACF3729F85D8200EBCF08 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C3AACF3829F85D9900EBCF08 /* SettingsViewViewModel.swift */,
+				C3AACF3A29F85DC500EBCF08 /* SettingsCellViewViewModel.swift */,
+				C3AACF3C29F85E3900EBCF08 /* SettingsOption.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		C3AACF3E29F8615800EBCF08 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				C3AACF3F29F8617700EBCF08 /* SettingsView.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		C3B024FB29F49B1300933B7B /* Core */ = {
@@ -448,6 +476,7 @@
 				C3B024FA29F49AD300933B7B /* Episode.swift in Sources */,
 				C3E164C229F5D0E40046DE36 /* CharacterEpisodeCollectionViewCellViewModel.swift in Sources */,
 				C3E164B829F5D0520046DE36 /* CharacterInfoCollectionViewCell.swift in Sources */,
+				C3AACF3929F85D9900EBCF08 /* SettingsViewViewModel.swift in Sources */,
 				C3B4AA1229F47AA1004D32D9 /* TabBarViewController.swift in Sources */,
 				C3B89D9F29F7435C004DEA9C /* EpisodeListViewViewModel.swift in Sources */,
 				C3610B6C29F7605A00743179 /* SearchViewController.swift in Sources */,
@@ -458,6 +487,7 @@
 				C3B0250429F49C2A00933B7B /* SettingsViewController.swift in Sources */,
 				C3E164B029F57EF50046DE36 /* UICollectionReusableView+Extensions.swift in Sources */,
 				C3B0250A29F4A5F600933B7B /* RMEndpoint.swift in Sources */,
+				C3AACF3D29F85E3900EBCF08 /* SettingsOption.swift in Sources */,
 				C3B0250629F4A4E300933B7B /* RMService.swift in Sources */,
 				C3E164B629F5D0390046DE36 /* CharacterPhotoCollectionViewCell.swift in Sources */,
 				C3E201A729F781FA003F6E8D /* EpisodeInfoCollectionViewCellViewModel.swift in Sources */,
@@ -469,7 +499,9 @@
 				C3B024FD29F49B3600933B7B /* CharacterViewController.swift in Sources */,
 				C3B0251229F4B93000933B7B /* CharacterGender.swift in Sources */,
 				C3B0250C29F4B7CA00933B7B /* Origin.swift in Sources */,
+				C3AACF3B29F85DC500EBCF08 /* SettingsCellViewViewModel.swift in Sources */,
 				C3E164A629F577A00046DE36 /* CharacterDetailViewController.swift in Sources */,
+				C3AACF4029F8617700EBCF08 /* SettingsView.swift in Sources */,
 				C3B89D9D29F740A8004DEA9C /* EpisodeListView.swift in Sources */,
 				C3E201AB29F78F86003F6E8D /* Date+Extensions.swift in Sources */,
 				C3B0250E29F4B81800933B7B /* SingleLocation.swift in Sources */,
