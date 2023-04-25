@@ -15,4 +15,5 @@ struct Episode: Codable, EpisodeDataRender {
     let episode: String
     let characters: [String]
     let created: String
+    let url: String
 }
