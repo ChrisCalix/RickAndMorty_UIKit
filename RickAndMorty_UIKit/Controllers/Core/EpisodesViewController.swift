@@ -16,8 +16,9 @@ final class EpisodesViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
-        title = "Characters"
+        title = "Episodes"
         setupView()
+        addSearchButton()
     }
     
     private func setupView() {
@@ -30,6 +31,17 @@ final class EpisodesViewController: UIViewController {
             episodeListView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             episodeListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    
+    private func addSearchButton() {
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTapSearch))
+    }
+    
+    @objc private func didTapSearch() {
+        
+        
     }
 }
 

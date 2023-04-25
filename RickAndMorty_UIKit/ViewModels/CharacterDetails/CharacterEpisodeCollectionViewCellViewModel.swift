@@ -5,7 +5,7 @@
 //  Created by Sonic on 23/4/23.
 //
 
-import Foundation
+import UIKit
 
 protocol EpisodeDataRender {
     
@@ -27,10 +27,11 @@ final class CharacterEpisodeCollectionViewCellViewModel: Hashable, Equatable {
             dataBlock?(model)
         }
     }
+    public let borderColor: UIColor
 
     //MARK: Init
-    init(episodeDataUrl: URL?) {
-        
+    init(episodeDataUrl: URL?, borderColor: UIColor = UIColor.secondaryLabel) {
+        self.borderColor = borderColor
         self.episodeDataUrl = episodeDataUrl
         isFetching = false
     }

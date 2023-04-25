@@ -36,17 +36,21 @@ class CharacterEpisodeCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        setupLayers()
         contentView.backgroundColor = .tertiarySystemBackground
-        contentView.layer.cornerRadius = 10
-        contentView.layer.shadowColor = UIColor.secondaryLabel.cgColor
-        contentView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        contentView.layer.shadowOpacity = 0.3
         contentView.addSubviews(seasonLabel, nameLabel, airDateLabel)
         setupConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError()
+    }
+    
+    private func setupLayers() {
+        
+        contentView.layer.cornerRadius = 10
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        contentView.layer.shadowOpacity = 0.3
     }
     
     private func setupConstraints() {
@@ -88,5 +92,6 @@ class CharacterEpisodeCollectionViewCell: UICollectionViewCell {
             }
         }
         viewModel.fetchEpisode()
+        contentView.layer.shadowColor = viewModel.borderColor.cgColor
     }
 }

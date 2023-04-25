@@ -23,7 +23,7 @@ final class EpisodeListViewViewModel: NSObject {
     private var episodes: [Episode] = [] {
         didSet {
             for episode in self.episodes {
-                let viewModel = CharacterEpisodeCollectionViewCellViewModel(episodeDataUrl: URL(string: episode.url))
+                let viewModel = CharacterEpisodeCollectionViewCellViewModel(episodeDataUrl: URL(string: episode.url), borderColor: borderColors.randomElement() ?? .secondaryLabel)
                 if !cellViewModels.contains(viewModel) {
                     self.cellViewModels.append(viewModel)
                 }
@@ -34,6 +34,16 @@ final class EpisodeListViewViewModel: NSObject {
     public var shouldShowLoadMoreIndicator: Bool {
         return apiInfo?.next != nil
     }
+    private let borderColors: [UIColor] = [
+        .systemGreen,
+        .systemBlue,
+        .systemOrange,
+        .systemPink,
+        .systemPurple,
+        .systemRed,
+        .systemYellow,
+        .systemIndigo
+    ]
     
     /// Fetch initial set of characters(20)
     public func fetchEpisodes() {
@@ -139,10 +149,9 @@ extension EpisodeListViewViewModel: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let bounds = UIScreen.main.bounds
-        let width = (bounds.width-30)/2
-        let height = width*0.7
-        return CGSize(width: width, height: height)
+        let bounds = collectionView.bounds
+        let width = (bounds.width-20)
+        return CGSize(width: width, height: 130)
     }
 }
 
