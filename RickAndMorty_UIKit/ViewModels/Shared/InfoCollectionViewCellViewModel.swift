@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EpisodeInfoCollectionViewCellViewModel {
+struct InfoCollectionViewCellViewModel {
     
     public let title: String
     public let value: String

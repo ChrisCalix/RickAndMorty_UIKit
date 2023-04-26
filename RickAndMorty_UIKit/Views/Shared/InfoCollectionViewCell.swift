@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class EpisodeInfoCollectionViewCell: UICollectionViewCell {
+final class InfoCollectionViewCell: UICollectionViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -68,7 +68,7 @@ final class EpisodeInfoCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    public func configure(with viewModel: EpisodeInfoCollectionViewCellViewModel) {
+    public func configure(with viewModel: InfoCollectionViewCellViewModel) {
         
         titleLabel.text = viewModel.title
         valueLabel.text = viewModel.value

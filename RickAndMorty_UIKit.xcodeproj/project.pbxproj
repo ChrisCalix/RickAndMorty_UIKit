@@ -65,8 +65,8 @@
 		C3E164C029F5D0D70046DE36 /* CharacterInfoCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E164BF29F5D0D70046DE36 /* CharacterInfoCollectionViewCellViewModel.swift */; };
 		C3E164C229F5D0E40046DE36 /* CharacterEpisodeCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E164C129F5D0E40046DE36 /* CharacterEpisodeCollectionViewCellViewModel.swift */; };
 		C3E164C429F643CA0046DE36 /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E164C329F643CA0046DE36 /* EpisodeDetailViewController.swift */; };
-		C3E201A429F781DF003F6E8D /* EpisodeInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E201A329F781DF003F6E8D /* EpisodeInfoCollectionViewCell.swift */; };
-		C3E201A729F781FA003F6E8D /* EpisodeInfoCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E201A629F781FA003F6E8D /* EpisodeInfoCollectionViewCellViewModel.swift */; };
+		C3E201A429F781DF003F6E8D /* InfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E201A329F781DF003F6E8D /* InfoCollectionViewCell.swift */; };
+		C3E201A729F781FA003F6E8D /* InfoCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E201A629F781FA003F6E8D /* InfoCollectionViewCellViewModel.swift */; };
 		C3E201A929F78D71003F6E8D /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E201A829F78D71003F6E8D /* String+Extensions.swift */; };
 		C3E201AB29F78F86003F6E8D /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E201AA29F78F86003F6E8D /* Date+Extensions.swift */; };
 /* End PBXBuildFile section */
@@ -132,8 +132,8 @@
 		C3E164BF29F5D0D70046DE36 /* CharacterInfoCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		C3E164C129F5D0E40046DE36 /* CharacterEpisodeCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEpisodeCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		C3E164C329F643CA0046DE36 /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
-		C3E201A329F781DF003F6E8D /* EpisodeInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeInfoCollectionViewCell.swift; sourceTree = "<group>"; };
-		C3E201A629F781FA003F6E8D /* EpisodeInfoCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeInfoCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		C3E201A329F781DF003F6E8D /* InfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		C3E201A629F781FA003F6E8D /* InfoCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		C3E201A829F78D71003F6E8D /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		C3E201AA29F78F86003F6E8D /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,6 +170,7 @@
 		C30098DF29F496DC007CA4B7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C3AACF5729F8B75900EBCF08 /* Shared */,
 				C3AACF5129F8B32400EBCF08 /* LocationDetails */,
 				C3AACF4129F88B2500EBCF08 /* Locations */,
 				C3AACF3E29F8615800EBCF08 /* SwiftUI */,
@@ -185,6 +186,7 @@
 		C30098E029F496E9007CA4B7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				C3AACF5829F8B76600EBCF08 /* Shared */,
 				C3AACF5429F8B3B000EBCF08 /* LocationDetails */,
 				C3AACF4429F88D2F00EBCF08 /* Location */,
 				C3AACF3729F85D8200EBCF08 /* Settings */,
@@ -285,6 +287,22 @@
 				C3AACF5529F8B3C800EBCF08 /* LocationDetailViewViewModel.swift */,
 			);
 			path = LocationDetails;
+			sourceTree = "<group>";
+		};
+		C3AACF5729F8B75900EBCF08 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				C3E201A329F781DF003F6E8D /* InfoCollectionViewCell.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		C3AACF5829F8B76600EBCF08 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				C3E201A629F781FA003F6E8D /* InfoCollectionViewCellViewModel.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		C3B024FB29F49B1300933B7B /* Core */ = {
@@ -437,7 +455,6 @@
 			isa = PBXGroup;
 			children = (
 				C3B89D9829F73ED9004DEA9C /* EpisodeDetailView.swift */,
-				C3E201A329F781DF003F6E8D /* EpisodeInfoCollectionViewCell.swift */,
 			);
 			path = EpisodeDetail;
 			sourceTree = "<group>";
@@ -446,7 +463,6 @@
 			isa = PBXGroup;
 			children = (
 				C3B89D9429F73E8F004DEA9C /* EpisodeDetailViewViewModel.swift */,
-				C3E201A629F781FA003F6E8D /* EpisodeInfoCollectionViewCellViewModel.swift */,
 			);
 			path = EpisodeDetails;
 			sourceTree = "<group>";
@@ -529,7 +545,7 @@
 				C3AACF4829F88FFD00EBCF08 /* GetAllLocationsResponse.swift in Sources */,
 				C3B89D9529F73E8F004DEA9C /* EpisodeDetailViewViewModel.swift in Sources */,
 				C3E164B229F5AC320046DE36 /* ImageLoader.swift in Sources */,
-				C3E201A429F781DF003F6E8D /* EpisodeInfoCollectionViewCell.swift in Sources */,
+				C3E201A429F781DF003F6E8D /* InfoCollectionViewCell.swift in Sources */,
 				C3AACF4E29F8AA8100EBCF08 /* UITableViewCell+Extensions.swift in Sources */,
 				C3E164A829F5780D0046DE36 /* CharacterDetailView.swift in Sources */,
 				C3B0251A29F4C7D100933B7B /* CharacterListView.swift in Sources */,
@@ -555,7 +571,7 @@
 				C3AACF3D29F85E3900EBCF08 /* SettingsOption.swift in Sources */,
 				C3B0250629F4A4E300933B7B /* RMService.swift in Sources */,
 				C3E164B629F5D0390046DE36 /* CharacterPhotoCollectionViewCell.swift in Sources */,
-				C3E201A729F781FA003F6E8D /* EpisodeInfoCollectionViewCellViewModel.swift in Sources */,
+				C3E201A729F781FA003F6E8D /* InfoCollectionViewCellViewModel.swift in Sources */,
 				C3B4AA1029F47AA1004D32D9 /* SceneDelegate.swift in Sources */,
 				C3B89D9929F73ED9004DEA9C /* EpisodeDetailView.swift in Sources */,
 				C3B024F829F49ACB00933B7B /* Character.swift in Sources */,

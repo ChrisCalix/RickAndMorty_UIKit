@@ -15,7 +15,7 @@ protocol LocationDetailViewViewModelDelegate: AnyObject {
 final class LocationDetailViewViewModel {
     
     enum SectionType {
-        case information(viewModels: [EpisodeInfoCollectionViewCellViewModel])
+        case information(viewModels: [InfoCollectionViewCellViewModel])
         case characters(viewModels: [CharacterCollectionViewCellViewModel])
     }
     
