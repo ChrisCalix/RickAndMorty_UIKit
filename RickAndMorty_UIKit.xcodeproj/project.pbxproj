@@ -18,6 +18,9 @@
 		C3AACF4A29F8921300EBCF08 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AACF4929F8921300EBCF08 /* LocationTableViewCell.swift */; };
 		C3AACF4C29F8927A00EBCF08 /* LocationTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AACF4B29F8927A00EBCF08 /* LocationTableViewCellViewModel.swift */; };
 		C3AACF4E29F8AA8100EBCF08 /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AACF4D29F8AA8100EBCF08 /* UITableViewCell+Extensions.swift */; };
+		C3AACF5029F8B1DB00EBCF08 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AACF4F29F8B1DB00EBCF08 /* LocationDetailViewController.swift */; };
+		C3AACF5329F8B33500EBCF08 /* LocationdetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AACF5229F8B33500EBCF08 /* LocationdetailView.swift */; };
+		C3AACF5629F8B3C800EBCF08 /* LocationDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AACF5529F8B3C800EBCF08 /* LocationDetailViewViewModel.swift */; };
 		C3B024F629F49AAF00933B7B /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B024F529F49AAF00933B7B /* Location.swift */; };
 		C3B024F829F49ACB00933B7B /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B024F729F49ACB00933B7B /* Character.swift */; };
 		C3B024FA29F49AD300933B7B /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B024F929F49AD300933B7B /* Episode.swift */; };
@@ -80,6 +83,9 @@
 		C3AACF4929F8921300EBCF08 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		C3AACF4B29F8927A00EBCF08 /* LocationTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		C3AACF4D29F8AA8100EBCF08 /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		C3AACF4F29F8B1DB00EBCF08 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
+		C3AACF5229F8B33500EBCF08 /* LocationdetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationdetailView.swift; sourceTree = "<group>"; };
+		C3AACF5529F8B3C800EBCF08 /* LocationDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewViewModel.swift; sourceTree = "<group>"; };
 		C3B024F529F49AAF00933B7B /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		C3B024F729F49ACB00933B7B /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		C3B024F929F49AD300933B7B /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
@@ -164,6 +170,7 @@
 		C30098DF29F496DC007CA4B7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C3AACF5129F8B32400EBCF08 /* LocationDetails */,
 				C3AACF4129F88B2500EBCF08 /* Locations */,
 				C3AACF3E29F8615800EBCF08 /* SwiftUI */,
 				C3E201A229F781A2003F6E8D /* EpisodeDetail */,
@@ -178,6 +185,7 @@
 		C30098E029F496E9007CA4B7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				C3AACF5429F8B3B000EBCF08 /* LocationDetails */,
 				C3AACF4429F88D2F00EBCF08 /* Location */,
 				C3AACF3729F85D8200EBCF08 /* Settings */,
 				C3E201A529F781EE003F6E8D /* EpisodeDetails */,
@@ -261,6 +269,22 @@
 				C3AACF4B29F8927A00EBCF08 /* LocationTableViewCellViewModel.swift */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		C3AACF5129F8B32400EBCF08 /* LocationDetails */ = {
+			isa = PBXGroup;
+			children = (
+				C3AACF5229F8B33500EBCF08 /* LocationdetailView.swift */,
+			);
+			path = LocationDetails;
+			sourceTree = "<group>";
+		};
+		C3AACF5429F8B3B000EBCF08 /* LocationDetails */ = {
+			isa = PBXGroup;
+			children = (
+				C3AACF5529F8B3C800EBCF08 /* LocationDetailViewViewModel.swift */,
+			);
+			path = LocationDetails;
 			sourceTree = "<group>";
 		};
 		C3B024FB29F49B1300933B7B /* Core */ = {
@@ -364,6 +388,7 @@
 			children = (
 				C3E164C329F643CA0046DE36 /* EpisodeDetailViewController.swift */,
 				C3E164A529F577A00046DE36 /* CharacterDetailViewController.swift */,
+				C3AACF4F29F8B1DB00EBCF08 /* LocationDetailViewController.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -499,6 +524,7 @@
 				C3E164BA29F5D06B0046DE36 /* CharacterEpisodeCollectionViewCell.swift in Sources */,
 				C3B0251C29F4D18900933B7B /* UIView+Extensions.swift in Sources */,
 				C3B0250129F49B5C00933B7B /* EpisodesViewController.swift in Sources */,
+				C3AACF5329F8B33500EBCF08 /* LocationdetailView.swift in Sources */,
 				C3B0251029F4B8D700933B7B /* CharacterStatus.swift in Sources */,
 				C3AACF4829F88FFD00EBCF08 /* GetAllLocationsResponse.swift in Sources */,
 				C3B89D9529F73E8F004DEA9C /* EpisodeDetailViewViewModel.swift in Sources */,
@@ -508,6 +534,7 @@
 				C3E164A829F5780D0046DE36 /* CharacterDetailView.swift in Sources */,
 				C3B0251A29F4C7D100933B7B /* CharacterListView.swift in Sources */,
 				C3B024FF29F49B4100933B7B /* LocationViewController.swift in Sources */,
+				C3AACF5629F8B3C800EBCF08 /* LocationDetailViewViewModel.swift in Sources */,
 				C3B0252229F4E31F00933B7B /* CharacterCollectionViewCellViewModel.swift in Sources */,
 				C3B024FA29F49AD300933B7B /* Episode.swift in Sources */,
 				C3E164C229F5D0E40046DE36 /* CharacterEpisodeCollectionViewCellViewModel.swift in Sources */,
@@ -548,6 +575,7 @@
 				C3E164C029F5D0D70046DE36 /* CharacterInfoCollectionViewCellViewModel.swift in Sources */,
 				C3B0251829F4C73100933B7B /* CharacterListViewViewModel.swift in Sources */,
 				C3B89DA129F7465D004DEA9C /* GetAllEpisodesResponse.swift in Sources */,
+				C3AACF5029F8B1DB00EBCF08 /* LocationDetailViewController.swift in Sources */,
 				C3B0251E29F4D9DF00933B7B /* CharacterCollectionViewCell.swift in Sources */,
 				C3E201A929F78D71003F6E8D /* String+Extensions.swift in Sources */,
 				C3B0251629F4C45600933B7B /* GetAllCharactersResponse.swift in Sources */,

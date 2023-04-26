@@ -17,7 +17,7 @@ struct LocationTableViewCellViewModel {
         return location.name
     }
     public var type: String {
-        return location.type
+        return "Type: \(location.type)"
     }
     public var dimension: String {
         return location.dimension

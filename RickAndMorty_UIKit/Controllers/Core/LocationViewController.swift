@@ -21,6 +21,7 @@ final class LocationViewController: UIViewController {
         title = "Locations"
         addSearchButton()
         addConstraints()
+        primaryView.delegate = self
         viewModel.delegate = self
         viewModel.fetchLocations()
     }
@@ -51,5 +52,15 @@ extension LocationViewController: LocationViewViewModelDelegate {
     func didFetchInitialLocations() {
         
         primaryView.configure(with: viewModel)
+    }
+}
+
+extension LocationViewController: LocationViewDelegate {
+    
+    func locationView(_ locationView: LocationView, didSelect location: Location) {
+        
+        let vc = LocationDetailViewController(location: location)
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
