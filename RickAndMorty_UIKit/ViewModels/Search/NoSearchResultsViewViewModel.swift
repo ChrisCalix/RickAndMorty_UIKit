@@ -5,8 +5,10 @@
 //  Created by Sonic on 25/4/23.
 //
 
-import Foundation
+import UIKit
 
-final class NoSearchResultsViewViewModel {
+struct NoSearchResultsViewViewModel {
     
+    let title = "No Results"
+    let image = UIImage(systemName: "magnifyingglass.circle")
 }

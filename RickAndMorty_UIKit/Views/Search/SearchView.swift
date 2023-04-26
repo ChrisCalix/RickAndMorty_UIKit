@@ -10,17 +10,31 @@ import UIKit
 final class SearchView: UIView {
     
     private let viewModel: SearchViewViewModel
+    
+    private let noResultsView = NoSearchResultsView()
 
     init(frame: CGRect, viewModel: SearchViewViewModel) {
         self.viewModel = viewModel
         super.init(frame: frame)
         
-        backgroundColor = .red
+        backgroundColor = .systemBackground
         translatesAutoresizingMaskIntoConstraints = false
+        addSubviews(noResultsView)
+        addConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("Unsupported")
+    }
+    
+    private func addConstraints() {
+        
+        NSLayoutConstraint.activate([
+            noResultsView.widthAnchor.constraint(equalToConstant: 150),
+            noResultsView.heightAnchor.constraint(equalToConstant: 150),
+            noResultsView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            noResultsView.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
     }
 }
 
