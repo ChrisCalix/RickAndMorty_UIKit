@@ -14,11 +14,21 @@ class SearchViewController: UIViewController {
     struct Config {
         
         enum `Type` {
-                
+            
             case character // name status gender
             case episode // name
             case location // name type
             
+            var endpoint: RMEndpoint {
+                switch self {
+                case .character:
+                    return .character
+                case .episode:
+                    return .episode
+                case .location:
+                    return .location
+                }
+            }
             var title: String {
                 switch self {
                 case .character:
@@ -46,10 +56,10 @@ class SearchViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("Ussupported")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         title = viewModel.config.type.title
         view.backgroundColor = .systemBackground
         view.addSubview(searchView)
@@ -66,7 +76,7 @@ class SearchViewController: UIViewController {
     
     @objc private func didTapExecuteSearch() {
         
-//        viewModel.executeSearch()
+        viewModel.executeSearch()
     }
     
     private func addConstraints() {
@@ -83,6 +93,24 @@ extension SearchViewController: SearchViewDelegate {
     
     func searchView(_ searchView: SearchView, didSelectOption option: SearchInputViewViewModel.DynamicOption) {
         
-        print("should presnet option picker \(option.rawValue)")
+        let vc = SearchOptionPickerViewController(option: option) { [weak self] selection in
+            DispatchQueue.main.async {
+                self?.viewModel.set(value: selection, for: option)
+            }
+        }
+        if #available(iOS 15.0, *) {
+            vc.sheetPresentationController?.detents = [.medium()]
+            vc.sheetPresentationController?.prefersGrabberVisible = true
+        } else {
+            vc.modalPresentationStyle = .overCurrentContext
+        }
+        present(vc, animated: true)
+    }
+    
+    func searchView(_ searchView: SearchView, didSelectLocation location: Location) {
+        
+        let vc = LocationDetailViewController(location: location)
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

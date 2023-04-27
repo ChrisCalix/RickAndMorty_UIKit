@@ -97,7 +97,7 @@ final class CharacterCollectionViewCell: UICollectionViewCell {
         statusLabel.text = viewModel.CharacterStatusText
         imageTask = viewModel.fetchImage { [weak self] result in
             guard let self else { return }
-            
+
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {
@@ -105,7 +105,7 @@ final class CharacterCollectionViewCell: UICollectionViewCell {
                     self.imageView.image = image
                 }
             case .failure(let error):
-                print(String(describing: error))
+                print("Image failure load"+String(describing: error))
                 break
             }
         }

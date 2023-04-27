@@ -10,8 +10,11 @@ import UIKit
 protocol SearchInputViewDelegate: AnyObject {
     
     func searchInputView(_ input: SearchInputView, didSelectOption option: SearchInputViewViewModel.DynamicOption)
+    func searchInputView(_ input: SearchInputView, didChangeSearchtext text: String)
+    func searchInputViewDidTapSearchkeyboardButton(_ input: SearchInputView)
 }
 
+/// View for top of search screen with searchBar
 final class SearchInputView: UIView {
     
     weak var delegate: SearchInputViewDelegate?
@@ -28,6 +31,7 @@ final class SearchInputView: UIView {
             createOptionSelectionViews(options: options)
         }
     }
+    private var stackView: UIStackView?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,6 +39,7 @@ final class SearchInputView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         addSubviews(searchBar)
         addConstants()
+        searchBar.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -53,6 +58,7 @@ final class SearchInputView: UIView {
     private func createOptionStackView() -> UIStackView {
     
         let stackView = UIStackView()
+        self.stackView = stackView
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
@@ -61,8 +67,8 @@ final class SearchInputView: UIView {
         addSubview(stackView)
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
-            stackView.leftAnchor.constraint(equalTo: leftAnchor),
-            stackView.rightAnchor.constraint(equalTo: rightAnchor),
+            stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 8),
+            stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -8),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
         stackView.backgroundColor = .systemBackground
@@ -95,10 +101,20 @@ final class SearchInputView: UIView {
                 string: option.rawValue,
                 attributes: [
                     .font: UIFont.systemFont(ofSize: 18, weight: .medium),
-                    .foregroundColor: UIColor.label
+                    .foregroundColor: UIColor.secondaryLabel
                 ]
             ),
             for: .normal
+        )
+        button.setAttributedTitle(
+            NSAttributedString(
+                string: option.rawValue,
+                attributes: [
+                    .font: UIFont.systemFont(ofSize: 18, weight: .medium),
+                    .foregroundColor: UIColor.label
+                ]
+            ),
+            for: .highlighted
         )
         button.backgroundColor = .secondarySystemFill
         button.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
@@ -118,5 +134,38 @@ final class SearchInputView: UIView {
     public func presentKeyboard() {
         
         searchBar.becomeFirstResponder()
+    }
+    
+    public func update(option: SearchInputViewViewModel.DynamicOption, value: String) {
+        
+        guard let buttons = stackView?.arrangedSubviews as? [UIButton], let index = viewModel?.options.firstIndex(of: option) else {
+            return
+        }
+        let button: UIButton = buttons[index]
+        button.setAttributedTitle(
+            NSAttributedString(
+                string: value.uppercased(),
+                attributes: [
+                    .font: UIFont.systemFont(ofSize: 18, weight: .medium),
+                    .foregroundColor: UIColor.systemBackground,
+                ]
+            ),
+            for: .normal
+        )
+        button.backgroundColor = UIColor.secondaryLabel
+    }
+}
+
+extension SearchInputView: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        delegate?.searchInputView(self, didChangeSearchtext: searchText)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        searchBar.resignFirstResponder()
+        delegate?.searchInputViewDidTapSearchkeyboardButton(self)
     }
 }

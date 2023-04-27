@@ -10,6 +10,7 @@ import UIKit
 protocol SearchViewDelegate: AnyObject {
     
     func searchView(_ searchView: SearchView, didSelectOption option: SearchInputViewViewModel.DynamicOption)
+    func searchView(_ searchView: SearchView, didSelectLocation location: Location)
 }
 
 final class SearchView: UIView {
@@ -18,6 +19,7 @@ final class SearchView: UIView {
     private let viewModel: SearchViewViewModel
     private let searchInputView = SearchInputView()
     private let noResultsView = NoSearchResultsView()
+    private let resultsView = SearchResultsView()
 
     init(frame: CGRect, viewModel: SearchViewViewModel) {
         self.viewModel = viewModel
@@ -25,10 +27,12 @@ final class SearchView: UIView {
         
         backgroundColor = .systemBackground
         translatesAutoresizingMaskIntoConstraints = false
-        addSubviews(noResultsView, searchInputView)
+        addSubviews(noResultsView, searchInputView, resultsView)
         addConstraints()
         searchInputView.configure(with: SearchInputViewViewModel(type: viewModel.config.type))
         searchInputView.delegate = self
+        setupHandlers(using: viewModel)
+        resultsView.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -47,8 +51,40 @@ final class SearchView: UIView {
             noResultsView.widthAnchor.constraint(equalToConstant: 150),
             noResultsView.heightAnchor.constraint(equalToConstant: 150),
             noResultsView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            noResultsView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            noResultsView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            //results
+            resultsView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            resultsView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            resultsView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            resultsView.topAnchor.constraint(equalTo: searchInputView.bottomAnchor, constant: 16),
         ])
+    }
+    
+    private func setupHandlers(using viewModel: SearchViewViewModel) {
+        
+        viewModel.registerOptionChangeBlock { option, value in
+            // tuple: option
+            self.searchInputView.update(option: option, value: value)
+        }
+        
+        viewModel.registerSearchResultHandler { [weak self] results in
+            DispatchQueue.main.async {
+                self?.resultsView.configure(with: results)
+                self?.presentationResult(showing: true)
+            }
+        }
+        
+        viewModel.registerNoResultHandler { [weak self] in
+            DispatchQueue.main.async {
+                self?.presentationResult(showing: false)
+            }
+        }
+    }
+    
+    private func presentationResult(showing: Bool) {
+        
+        self.noResultsView.isHidden = showing
+        self.resultsView.isHidden = !showing
     }
     
     public func presentKeyboard() {
@@ -81,4 +117,26 @@ extension SearchView: SearchInputViewDelegate {
         
         delegate?.searchView(self, didSelectOption: option)
     }
+    
+    func searchInputView(_ input: SearchInputView, didChangeSearchtext text: String) {
+        
+        viewModel.set(query: text)
+    }
+    
+    func searchInputViewDidTapSearchkeyboardButton(_ input: SearchInputView) {
+        
+        viewModel.executeSearch()
+    }
+}
+
+extension SearchView: SearchResultsViewDelegate {
+    
+    func searchResultsView(_ resultView: SearchResultsView, didTapLocationAt index: Int) {
+        
+        guard let locationModel = viewModel.locationSearchResult(at: index) else {
+            return
+        }
+        delegate?.searchView(self, didSelectLocation: locationModel)
+    }
+    
 }

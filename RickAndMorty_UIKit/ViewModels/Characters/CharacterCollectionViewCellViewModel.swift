@@ -28,6 +28,7 @@ final class CharacterCollectionViewCellViewModel {
     
     public func fetchImage(completion: @escaping (Result<Data, Error>) -> Void) -> URLSessionDataTask? {
         //TODO: Abstract to Image Manager
+        
         guard let url = characterImageUrl else {
             completion(.failure(URLError(.badURL)))
             return nil
